@@ -1,0 +1,22 @@
+.btn-lg{
+    padding: 10px 120px;
+  }
+  .card-space{
+    margin-top: 10px;
+    border-left:10px solid lightblue;
+}
+  @media (max-width: 600px)
+  {
+    .card-space{
+      position: absolute;
+      top:70%;
+      left:20%;
+    }
+    .btn-lg{
+      margin-top: 20px;
+    }
+    .button-group{
+      position: absolute;
+      left: 10.5%;
+    }
+  }

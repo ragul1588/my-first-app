@@ -1,0 +1,61 @@
+
+<div class="container">
+    <div class="row">
+       
+    <div class="row button-group">
+        <div class="col-md-4">
+            <input type = "button" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" (click)="getScoreDetails('t20')" value="T20">
+        </div>
+        <div class="col-md-4">
+            <input type = "button" class="btn btn-success btn-lg active" role="button" aria-pressed="true" (click)="getScoreDetails('odi')" value="ODI">
+        </div>
+        <div class="col-md-4">
+            <input type = "button" class="btn btn-primary btn-lg light" role="button" aria-pressed="true" (click)="getScoreDetails('test')" value="Test">
+        </div>
+    </div>
+
+    <div *ngIf="products.length>0; else elseBlock">
+      <div *ngIf="products =='hits today exceeded hits limit'; else elseCard">
+        <div class="card col-md-12 card-space text-center">
+          <!-- <img class="card-img-top" src="https://g.cricapi.com/iapi/4191-638101639309122979.webp?w=48" alt="Card image cap"> -->
+          <div class="card-body">
+            <small>{{products}}</small>
+          </div>
+      </div>
+
+       </div>
+       <ng-template #elseCard>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Timings</th>
+              <th scope="col">Match Status</th>
+              <th scope="col">Teams</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of products;">
+              <td>{{item.matchType | uppercase}}</td>
+              <td>{{item.ms}}</td>
+              <td>{{item.status}}</td>
+              <td>{{item.t1}} VS {{item.t2}}</td> 
+            </tr>
+            
+          </tbody>
+        </table>
+       </ng-template>
+    </div>
+    
+    <!-- <div class="d-flex justify-content-center mt-4" *ngIf="products.length==0;">
+      <table>
+        <tr *ngFor="let item of products;">
+          <td>{{item.status}}</td>
+        </tr>
+      </table>
+    </div> -->
+
+    <ng-template #elseBlock>
+        <div class="d-flex justify-content-center mt-4"> Click any button to load data</div>
+    </ng-template>
+</div>
