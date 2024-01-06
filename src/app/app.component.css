@@ -1,4 +1,4 @@
-table, th, td {
+/* table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
     width:40%;
@@ -14,4 +14,5 @@ table, th, td {
 td:nth-child(4) {
     width:20%;
     background: #ccc;
-}
+} */
+
