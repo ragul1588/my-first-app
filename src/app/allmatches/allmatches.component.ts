@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { AppService } from '../app.service';
 import { Router } from '@angular/router';
 //import * as $ from "jquery";
@@ -10,37 +10,37 @@ import { Router } from '@angular/router';
 })
 export class AllmatchesComponent {
   title = 'Cricket Live Scores';
-  products:any = [];
-  flags:any = [];
-  Temproducts:any = [];
-  
-  constructor (private appservice:AppService, private router:Router){
- 
-  } 
+  products: any = [];
+  flags: any = [];
+  Temproducts: any = [];
 
-  NavigatetoList(){
+  constructor(private appservice: AppService, private router: Router) {
+
+  }
+
+  NavigatetoList() {
     this.router.navigate(['/List']);
   }
-  getScoreDetails(data)
-  { 
-    
+  getScoreDetails(data) {
+
     this.appservice.getScore().subscribe((getdata) => {
-    
-      this.Temproducts=getdata["data"];
-      if(getdata["reason"].length>0)
-      {
+
+      this.Temproducts = getdata["data"];
+      
+      if (getdata["reason"] !=null ) {
         this.products = getdata["reason"]
       }
-      this.products =  this.Temproducts.filter(function(item) {
-      
+      this.products = this.Temproducts.filter(function (item) {
+
         return item.matchType == data;
-    })}
-      
-  )}
-  getAllCountryFlags()
-  {
+      })
+    }
+
+    )
+  }
+  getAllCountryFlags() {
     this.appservice.getAllFlags().subscribe((getdata) => {
-      this.flags=getdata["data"];
+      this.flags = getdata["data"];
     })
   }
 };

@@ -1,0 +1,40 @@
+.match-details{
+margin-top: 20px;
+}
+/* .match-venue{
+
+} */
+.back-button{
+    margin-top: 10px;
+}
+.match-date{
+padding-left: 10px;
+}
+.Matchcard-title {
+    /* border-bottom: 2px solid black; */
+    height: 50px;
+    background-color: #8a8178;
+    color: white;
+    font-weight: 700;
+}
+.card{
+    margin-top: 20px;
+    background-color: orange; 
+}
+.card-body{
+    background-color: #8a8178;
+}
+ .firstInnings {
+    float: left;
+    /* padding: 10px 0 10px 30px; */
+}
+.firstInningsScore {
+    float: right;
+    /* padding: 10px 30px 10px 0; */
+} 
+.match-status{
+    margin-top: 20px;
+    height: 20px;
+    color: #33a8d6;
+    font-weight: 400;
+}

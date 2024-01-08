@@ -21,7 +21,7 @@ export class MainpageComponent implements OnInit {
   {
    
     this.appservice.getLiveScore().subscribe(getdata=>{
-      
+      debugger;
       this.allscores=getdata["data"];
       if(this.allscores==undefined)
       {

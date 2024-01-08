@@ -1,0 +1,42 @@
+<!-- <div class="container">
+    <div class="row d-flex justify-content-around">
+        <div class="card col-md-3 card-space" *ngFor="let onematchDetails of matchDetails.slice(0, 3)">
+            
+            <div routerLink="/mainpage/mainpagedetail/{{onematchDetails.series_id}}" class="card-body">
+                <h5 class="card-title">{{onematchDetails.name}}</h5>
+                <p class="card-text">{{onematchDetails.status}}</p>
+                <small>{{onematchDetails.venue}}</small>
+            </div>
+        </div>
+    </div>
+  </div> -->
+
+<div class="container">
+        <div class="match-details">
+            <h4>{{onematchDetails.name}} {{onematchDetails.matchType | uppercase}} - Live Cricket Score</h4>
+            <span class="match-venue">Venue: {{onematchDetails.venue}}</span><span class="match-date">Date: {{onematchDetails.date}}</span>
+        </div>
+        <div class="match-status">
+            <p>{{onematchDetails.status}}</p>
+        </div>
+
+        <div class="row d-flex justify-content-around">
+            <div class="card col-md-12 card-space">
+                <div class="card-body">
+                    <div class="Matchcard-title">
+                        <p class="firstInnings">{{onematchDetails.score[0].inning}}</p>
+                        <p class="firstInningsScore">{{onematchDetails.score[0].r}}/{{onematchDetails.score[0].w}} ({{onematchDetails.score[0].o}})</p>
+                    </div>
+                    <div class="Matchcard-title">
+                        <p class="firstInnings">{{onematchDetails.score[1].inning}}</p>
+                        <p class="firstInningsScore"> {{onematchDetails.score[1].r}}/{{onematchDetails.score[1].w}} ({{onematchDetails.score[1].o}})</p>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+        <div routerLink="/" class="back-button"> 
+            <input type="button" class="btn btn-primary" value="Back">
+        </div>
+</div>

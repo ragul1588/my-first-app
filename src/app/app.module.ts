@@ -7,12 +7,14 @@ import { sharedmodule } from './shared.module';
 import {HttpClientModule} from '@angular/common/http';
 import {AllmatchesComponent} from './allmatches/allmatches.component';
 import {MainpageComponent} from './mainpage/mainpage.component';
+import {MainpagedetailComponent} from './mainpage/mainpagedetail/mainpagedetail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AllmatchesComponent,
-    MainpageComponent
+    MainpageComponent,
+    MainpagedetailComponent
   ],
   imports: [
     BrowserModule, sharedmodule,HttpClientModule,AppRoutingModule
