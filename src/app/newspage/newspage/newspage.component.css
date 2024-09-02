@@ -1,0 +1,18 @@
+.img-height{
+    height: 130px;
+    margin-bottom: 10px;
+    /* width: 200px; */
+}
+.card-title{
+height: 120px;
+}
+.top-space{
+    margin-top: 20px;
+    }
+    .card{
+        
+        height: 450px;
+    }
+    .container:hover{
+        cursor:pointer;
+    }

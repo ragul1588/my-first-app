@@ -1,41 +1,40 @@
 <div class="container">
-  <div class="row">
+  <div class="row button-group">
+    <div class="col-md-4 col-sm-12 mb-3">
+      <button type="button" class="btn btn-danger btn-lg active" role="button" aria-pressed="true" (click)="getScoreDetails('live')">
+        <i class="fas fa-broadcast-tower"></i> Live Match
+      </button>
+    </div>
+    <div class="col-md-4 col-sm-12 mb-3">
+      <button type="button" class="btn btn-dark btn-lg active" role="button" aria-pressed="true" (click)="getScoreDetails('result')">
+        <i class="fas fa-flag-checkered"></i> Match Ended
+      </button>
+    </div>
+    <div class="col-md-4 col-sm-12 mb-3">
+      <button type="button" class="btn btn-success btn-lg active" role="button" aria-pressed="true" (click)="getScoreDetails('fixtures')">
+        <i class="fas fa-calendar-alt"></i> Upcoming
+      </button>
+    </div>
+  </div>
 
-    <div class="row button-group">
-      <div class="col-md-4">
-        <input type="button" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
-          (click)="getScoreDetails('t20')" value="T20">
-      </div>
-      <div class="col-md-4">
-        <input type="button" class="btn btn-success btn-lg active" role="button" aria-pressed="true"
-          (click)="getScoreDetails('odi')" value="ODI">
-      </div>
-      <div class="col-md-4">
-        <input type="button" class="btn btn-primary btn-lg light" role="button" aria-pressed="true"
-          (click)="getScoreDetails('test')" value="Test">
+  <div *ngIf="products.length > 0; else elseBlock">
+    <div *ngIf="products == 'hits today exceeded hits limit'; else elseCard">
+      <div class="alert alert-warning text-center">
+        <small>{{products}}</small>
       </div>
     </div>
+  </div>
 
-    <div *ngIf="products.length>0; else elseBlock">
-      <div *ngIf="products =='hits today exceeded hits limit'; else elseCard">
-        <div class="card col-md-12 card-space text-center">
-          <!-- <img class="card-img-top" src="https://g.cricapi.com/iapi/4191-638101639309122979.webp?w=48" alt="Card image cap"> -->
-          <div class="card-body">
-            <small>{{products}}</small>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-    <ng-template #elseCard>
-      <table class="table">
+  <ng-template #elseCard>
+    <div class="fixture-table">
+      <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Timings</th>
-            <th scope="col">Match Status</th>
-            <th scope="col">Teams</th>
+            <th>#</th>
+            <th>Status</th>
+            <th>Match Overview</th>
+            <th>Teams</th>
+            <th>Timings</th>
           </tr>
         </thead>
         <tbody>
@@ -44,21 +43,14 @@
             <td>{{item.ms}}</td>
             <td>{{item.status}}</td>
             <td>{{item.t1}} VS {{item.t2}}</td>
+            <td>{{item.dateTimeGMT | date:'fullDate' }}</td>
           </tr>
-
         </tbody>
       </table>
-    </ng-template>
+    </div>
+  </ng-template>
 
-    <!-- <div class="d-flex justify-content-center mt-4" *ngIf="products.length==0;">
-      <table>
-        <tr *ngFor="let item of products;">
-          <td>{{item.status}}</td>
-        </tr>
-      </table>
-    </div> -->
-
-    <ng-template #elseBlock>
-      <div class="d-flex justify-content-center mt-4"> Click any button to load data</div>
-    </ng-template>
-  </div>
+  <ng-template #elseBlock>
+    <div class="d-flex justify-content-center mt-4">Click any button to load data</div>
+  </ng-template>
+</div>

@@ -1,22 +1,69 @@
-.btn-lg{
-    padding: 10px 120px;
-  }
-  .card-space{
-    margin-top: 10px;
-    border-left:10px solid lightblue;
+/* Container styling */
+.container {
+  padding: 15px;
 }
-  @media (max-width: 600px)
-  {
-    .card-space{
-      position: absolute;
-      top:70%;
-      left:20%;
-    }
-    .btn-lg{
-      margin-top: 20px;
-    }
-    .button-group{
-      position: absolute;
-      left: 10.5%;
-    }
+
+/* Button group styling */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.button-group .col-md-4 {
+  flex: 1 1 30%;
+  max-width: 30%;
+}
+
+.btn-lg {
+  width: 100%; /* Make buttons full width */
+}
+
+/* Fixture table styling */
+.fixture-table {
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%; /* Full width table */
+  overflow-x: auto; /* Horizontal scroll for smaller screens */
+  border-collapse: collapse; /* Collapsed borders */
+}
+
+.table th, .table td {
+  padding: 10px; /* Padding for table cells */
+  text-align: center; /* Center align text */
+  border: 1px solid #ddd; /* Border for table cells */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9; /* Striped rows for readability */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 992px) { /* Tablet and smaller devices */
+  .button-group .col-md-4 {
+      flex: 1 1 45%; /* Button width for tablets */
+      max-width: 45%;
   }
+
+  .btn-lg {
+      margin-top: 10px; /* Margin for buttons */
+  }
+}
+
+@media (max-width: 768px) { /* Mobile devices */
+  .button-group .col-md-4 {
+      flex: 1 1 100%; /* Full width buttons on mobile */
+      max-width: 100%;
+  }
+
+  .table {
+      font-size: 14px; /* Adjust font size for mobile */
+  }
+
+  .table th, .table td {
+      padding: 8px; /* Adjust padding for smaller screens */
+  }
+}

@@ -8,13 +8,15 @@ import {HttpClientModule} from '@angular/common/http';
 import {AllmatchesComponent} from './allmatches/allmatches.component';
 import {MainpageComponent} from './mainpage/mainpage.component';
 import {MainpagedetailComponent} from './mainpage/mainpagedetail/mainpagedetail.component';
+import { NewspageComponent } from './newspage/newspage/newspage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AllmatchesComponent,
     MainpageComponent,
-    MainpagedetailComponent
+    MainpagedetailComponent,
+    NewspageComponent
   ],
   imports: [
     BrowserModule, sharedmodule,HttpClientModule,AppRoutingModule

@@ -1,9 +1,7 @@
 .match-details{
 margin-top: 20px;
 }
-/* .match-venue{
 
-} */
 .back-button{
     margin-top: 10px;
 }
@@ -11,7 +9,6 @@ margin-top: 20px;
 padding-left: 10px;
 }
 .Matchcard-title {
-    /* border-bottom: 2px solid black; */
     height: 50px;
     background-color: #8a8178;
     color: white;
@@ -26,11 +23,9 @@ padding-left: 10px;
 }
  .firstInnings {
     float: left;
-    /* padding: 10px 0 10px 30px; */
 }
 .firstInningsScore {
     float: right;
-    /* padding: 10px 30px 10px 0; */
 } 
 .match-status{
     margin-top: 20px;
