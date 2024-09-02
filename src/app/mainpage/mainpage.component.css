@@ -1,4 +1,89 @@
-.card-space{
-    margin-top: 10px;
-    border-left:10px solid lightblue;
+/* General button styling */
+.btn-lg {
+  width: 100%; /* Full width of the column */
+  height: 100%; /* Full height of the column */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Button group styling */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute space evenly between buttons */
+  margin: -5px; /* Remove negative margin to handle spacing issues */
+}
+
+/* Align buttons in the grid */
+.col-md-3, .col-sm-6, .col-xs-12 {
+  padding: 5px; /* Add padding around columns for spacing */
+}
+
+/* Card styling */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  height: 100%; /* Make cards occupy full column height */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Title styling */
+.card-title {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.btn-league {
+  background-color: #ff6f61; /* Example color for League Matches */
+  color: white;
+}
+
+.btn-league:hover {
+  background-color: #e55b50; /* Slightly darker shade on hover */
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) { /* Tablets */
+  .btn-lg {
+      font-size: 14px;
+      padding: 8px;
+  }
+}
+
+@media (max-width: 768px) { /* Mobile devices */
+  .btn-lg {
+      font-size: 12px;
+      padding: 6px;
+  }
+  
+  .button-group {
+      justify-content: center; /* Center buttons on mobile */
+  }
+  
+  .card {
+      margin: 0 auto; /* Center cards on mobile */
+      width: 100%;
+  }
 }

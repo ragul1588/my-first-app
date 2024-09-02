@@ -1,0 +1,18 @@
+
+
+<div class="container">
+    <div class="row d-flex justify-content-around" >
+        <div class="col-md-4 top-space" *ngFor="let item of cricketNews">
+            <div (click)="navigateTo(item.url)" >
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.title}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{item.publishedAt | date}}</h6>
+                        <img class="card-img-top img-height" src={{item.urlToImage}} alt="Card image cap">
+                      <p class="card-text">{{item.description}}</p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>

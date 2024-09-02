@@ -15,14 +15,10 @@ export class MainpagedetailComponent {
 
   }
   ngOnInit(): void {
-    //debugger;
     this.matchId = this.activateroute.snapshot.paramMap.get('id');
     this.appservice.getLiveScore().subscribe(alldata => {
-      debugger;
-      this.matchDetails = alldata["data"];
-      this.onematchDetails = this.matchDetails.find(obj => obj.id == this.matchId);
- 
-    console.log(this.onematchDetails);
-    })
+    this.matchDetails = alldata["data"];
+    this.onematchDetails = this.matchDetails.find(obj => obj.id == this.matchId);
+    });
   }
 }

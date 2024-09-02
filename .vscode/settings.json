@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/a501a0d5-7100-43d0-a5a8-0ffb1b062014/resourceGroups/Cricket-Angular/providers/Microsoft.Web/sites/livecricketscore",
+    "appService.deploySubpath": "dist"
+}

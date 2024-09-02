@@ -1,33 +1,51 @@
 <div class="container">
-    <div *ngIf="allscores.length>0; else elseBlock">
-      <div class="row d-flex justify-content-around">
-        <div *ngIf="allscores =='Blocked for 15 minutes' else elseCard">
-            <div class="card col-md-12 card-space text-center">
-              <!-- <img class="card-img-top" src="https://g.cricapi.com/iapi/4191-638101639309122979.webp?w=48" alt="Card image cap"> -->
-              <div class="card-body">
-                <small>{{allscores}}</small>
-              </div>
-          </div>
-        </div>
+  <div class="row button-group">
+    <div class="col-md-3 col-sm-6 col-xs-12 mb-3">
+      <button type="button" class="btn btn-primary btn-lg" role="button" aria-pressed="true" (click)="getInternationalScoreDetails()">
+        <i class="fas fa-globe"></i> International
+      </button>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 mb-3">
+      <button type="button" class="btn btn-warning btn-lg" role="button" aria-pressed="true" (click)="getDomesticScoreDetails()">
+        <i class="fas fa-home"></i> Domestic
+      </button>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 mb-3">
+      <button type="button" class="btn btn-league btn-lg" role="button" aria-pressed="true" (click)="getLeagueScoreDetails()">
+        <i class="fas fa-trophy"></i> League Matches
+      </button>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 mb-3">
+      <button type="button" class="btn btn-info btn-lg" role="button" aria-pressed="true" (click)="refreshData()">
+        <i class="fas fa-sync-alt"></i> Refresh Data (Cache)
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="allscores.length > 0; else elseBlock">
+    <div *ngIf="allscores == 'Blocked for 15 minutes' else elseCard">
+      <div class="alert alert-warning text-center">
+        <strong>{{allscores}}</strong>
+      </div>
     </div>
 
-      <ng-template #elseCard>
-        <div class="row d-flex justify-content-around">
-            <div class="card col-md-3 card-space" *ngFor="let item of allscores">
-              <!-- <img class="card-img-top" src="https://g.cricapi.com/iapi/4191-638101639309122979.webp?w=48" alt="Card image cap"> -->
-              <div routerLink="/mainpage/mainpagedetail/{{item.id}}" class="card-body">
-                <h5 class="card-title">{{item.name}}</h5>
-                <p class="card-text">{{item.status}}</p>
-                <small>{{item.venue}}</small>
-              </div>
+    <ng-template #elseCard>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12 mb-3" *ngFor="let item of allscores">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{item.name}}</h5>
+              <p class="card-text">{{item.status}}</p>
+              <small class="text-muted">{{item.venue}}</small>
+              <a [routerLink]="'/mainpage/mainpagedetail/' + item.id" class="btn btn-primary mt-2">View Details</a>
+            </div>
           </div>
         </div>
-      </ng-template> 
-    </div>
-
-      <ng-template #elseBlock>
-         <div class="d-flex justify-content-center mt-4">No Data Available</div>
+      </div>
     </ng-template>
-    </div>
+  </div>
 
-    
+  <ng-template #elseBlock>
+    <div class="d-flex justify-content-center mt-4">No Data Available</div>
+  </ng-template>
+</div>

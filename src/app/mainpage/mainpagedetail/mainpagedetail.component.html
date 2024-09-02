@@ -1,41 +1,59 @@
-<!-- <div class="container">
-    <div class="row d-flex justify-content-around">
-        <div class="card col-md-3 card-space" *ngFor="let onematchDetails of matchDetails.slice(0, 3)">
-            
-            <div routerLink="/mainpage/mainpagedetail/{{onematchDetails.series_id}}" class="card-body">
-                <h5 class="card-title">{{onematchDetails.name}}</h5>
-                <p class="card-text">{{onematchDetails.status}}</p>
-                <small>{{onematchDetails.venue}}</small>
-            </div>
-        </div>
-    </div>
-  </div> -->
-
 <div class="container">
         <div class="match-details">
             <h4>{{onematchDetails.name}} {{onematchDetails.matchType | uppercase}} - Live Cricket Score</h4>
             <span class="match-venue">Venue: {{onematchDetails.venue}}</span><span class="match-date">Date: {{onematchDetails.date}}</span>
         </div>
-        <div class="match-status">
-            <p>{{onematchDetails.status}}</p>
-        </div>
 
-        <div class="row d-flex justify-content-around">
-            <div class="card col-md-12 card-space">
-                <div class="card-body">
-                    <div class="Matchcard-title">
-                        <p class="firstInnings">{{onematchDetails.score[0].inning}}</p>
-                        <p class="firstInningsScore">{{onematchDetails.score[0].r}}/{{onematchDetails.score[0].w}} ({{onematchDetails.score[0].o}})</p>
-                    </div>
-                    <div class="Matchcard-title">
-                        <p class="firstInnings">{{onematchDetails.score[1].inning}}</p>
-                        <p class="firstInningsScore"> {{onematchDetails.score[1].r}}/{{onematchDetails.score[1].w}} ({{onematchDetails.score[1].o}})</p>
-                    </div>
-                    
 
+        <div *ngIf="onematchDetails.status=='Match not started'; else elseBlock">
+            <div class="row d-flex justify-content-around">
+                <div class="card col-md-12 card-space">
+                    <div class="card-body">
+                        <div class="Matchcard-title">
+                            <p>{{onematchDetails.status}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <ng-template #elseBlock>
+            <div class="match-status">
+                <p>{{onematchDetails.status}}</p>
+            </div>
+            <div class="row d-flex justify-content-around">
+                <div class="card col-md-12 card-space">
+                    <div class="card-body">
+                        <div class="Matchcard-title">
+                            <p class="firstInnings">{{onematchDetails.score[0].inning}}</p>
+                            <p class="firstInningsScore">{{onematchDetails.score[0].r}}/{{onematchDetails.score[0].w}} ({{onematchDetails.score[0].o}})</p>
+                        </div>
+                        <div class="Matchcard-title">
+                            <p class="firstInnings">{{onematchDetails.score[1].inning}}</p>
+                            <p class="firstInningsScore"> {{onematchDetails.score[1].r}}/{{onematchDetails.score[1].w}} ({{onematchDetails.score[1].o}})</p>
+                        </div>
+
+                        <div *ngIf="onematchDetails.score.length > 2 && onematchDetails.score[2]?.inning">
+                            <div class="Matchcard-title">
+                              <p class="firstInnings">{{ onematchDetails.score[2].inning }}</p>
+                              <p class="firstInningsScore">{{ onematchDetails.score[2].r }}/{{ onematchDetails.score[2].w }} ({{ onematchDetails.score[2].o }})</p>
+                            </div>
+                          </div>
+                          
+                          <!-- Optional: If you want to also display score[3] if it exists, add this section -->
+                          <div *ngIf="onematchDetails.score.length > 3 && onematchDetails.score[3]?.inning">
+                            <div class="Matchcard-title">
+                              <p class="secondInnings">{{ onematchDetails.score[3].inning }}</p>
+                              <p class="secondInningsScore">{{ onematchDetails.score[3].r }}/{{ onematchDetails.score[3].w }} ({{ onematchDetails.score[3].o }})</p>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        
+
+        
         <div routerLink="/" class="back-button"> 
             <input type="button" class="btn btn-primary" value="Back">
         </div>

@@ -26,17 +26,18 @@ export class AllmatchesComponent {
     this.appservice.getScore().subscribe((getdata) => {
 
       this.Temproducts = getdata["data"];
+      console.log(this.Temproducts);
       
       if (getdata["reason"] !=null ) {
         this.products = getdata["reason"]
       }
       this.products = this.Temproducts.filter(function (item) {
-
-        return item.matchType == data;
+       if(data=='live') return item.ms == 'live';
+       else if(data=='result') return item.ms == 'result';
+       else return item.status == 'Match not started';
       })
-    }
-
-    )
+    });
+    this.products.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   }
   getAllCountryFlags() {
     this.appservice.getAllFlags().subscribe((getdata) => {
