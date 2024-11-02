@@ -26,6 +26,12 @@ padding-left: 10px;
 }
 .firstInningsScore {
     float: right;
+}
+.secondInnings{
+    float: left; 
+}
+.secondInningsScore{
+    float: right;
 } 
 .match-status{
     margin-top: 20px;
